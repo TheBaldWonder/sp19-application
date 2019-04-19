@@ -36,7 +36,7 @@ class News extends CI_Controller {
         }
     
         public function create()
-        {
+    {
         $this->load->helper('form');
         $this->load->library('form_validation');
 
@@ -47,18 +47,21 @@ class News extends CI_Controller {
 
         if ($this->form_validation->run() === FALSE)
         {
-            $this->load->view('templates/header', $data);
-            $this->load->view('news/create');
-            $this->load->view('templates/footer');
-
+            $this->load->view('news/create', $data);
         }
         else
         {
-            $this->news_model->set_news();
-            $this->load->view('templates/header', $data);
-            $this->load->view('news/success');
-            $this->load->view('templates/footer');
+            //$this->news_model->set_news();
+            //$this->load->view('news/success',$data);
+            $slug = $this->news_model->set_news();
+            if($slug !== false){//slug sent
+                feedback('Data entered successfully!','info');
+                redirect('news/view/' . $slug);
+            }else{//error
+                feedback('Data NOT entered!','error');
+                redirect('news/create');
+            }
         }
-        }
+    }
 
 }
