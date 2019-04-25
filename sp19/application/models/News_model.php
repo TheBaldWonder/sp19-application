@@ -2,13 +2,13 @@
 //application/models/News_model.php
 class News_model extends CI_Model {
 
-        public function __construct()
-        {
-                $this->load->database();
-        }
+    public function __construct()
+    {
+            $this->load->database();
+    }
     
     
-        public function get_news($slug = FALSE)
+    public function get_news($slug = FALSE)
     {
             if ($slug === FALSE)
             {
@@ -18,9 +18,10 @@ class News_model extends CI_Model {
 
             $query = $this->db->get_where('sp19_news', array('slug' => $slug));
             return $query->row_array();
-    }
+    }  
     
-        public function set_news()
+
+    public function set_news()
     {
         $this->load->helper('url');
 
@@ -33,14 +34,12 @@ class News_model extends CI_Model {
         );
 
         //return $this->db->insert('sp19_news', $data);
-            
-            if($this->db->insert('sp19_news', $data))
-            {//return slug - send to view page
-                return $slug;
-            }else{//return false
-                return false;
-            }
+        
+        if($this->db->insert('sp19_news', $data))
+        {//return slug - send to view page
+            return $slug;
+        }else{//return false
+            return false;
+        }
     }
-    
-    
 }
