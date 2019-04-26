@@ -51,16 +51,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 
 //routes for our news model
-$route['news/create'] = 'news/create';
+/*$route['news/create'] = 'news/create';
 $route['news/(:any)'] = 'news/view/$1';
 $route['news'] = 'news';
 
 
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
+$route['translate_uri_dashes'] = FALSE;*/
 
-
+// For Flickr API - have these lines being pics, instead of news. 
+//$route['pics/create'] = 'pics/create';
+$route['pics/(:any)'] = 'pics/index/$1';
+$route['pics'] = 'pics';
+//$route['(:any)'] = 'pages/view/$1';
+$route['default_controller'] = 'pages/view';
+$route['news/create'] = 'news/create';
+$route['news/(:any)'] = 'news/view/$1';
+$route['news'] = 'news';
+// $route['default_controller'] = 'pages/view';
+$route['(:any)'] = 'pages/view/$1'; 
 
 
 
