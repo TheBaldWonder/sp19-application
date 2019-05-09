@@ -6,7 +6,8 @@ class Pics_model extends CI_Model { // extends the previous class.
     public function get_pics($param)
     {
         
-        $api_key = '41d63dd75cb7222919dd788ccaf36d7f';
+        //$api_key = '41d63dd75cb7222919dd788ccaf36d7f';
+        $api_key = $this->config->item('flikr_api');
   
         $perPage = 25; // default value was 50. 
         $url = 'https://api.flickr.com/services/rest/?method=flickr.photos.search';

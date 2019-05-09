@@ -1,17 +1,16 @@
 <?php
 class Pics extends CI_Controller {
-/*
-$api_key = '002e8e42551bffdb1edd2c182a35d936';
-$tags = 'bears,polar';
- */  
+ 
     public function __construct()
 {
         parent::__construct();
+        $this->config->set_item('banner','Pics Section');
         $this->load->model('pics_model');
         $this->load->helper('url_helper');
 }
     public function index($param='seahawks')
     {
+        $this->config->set_item('title','Flikr Pics');
         
 if(isset($_POST['submit']))
 {
